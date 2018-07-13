@@ -17,8 +17,8 @@
     <main>
         <p>
             <label>
-                 Name:
-                 <input id='name'>
+                 Number:
+                 <input id='number' type='number'>
             </label>
         </p>
 
@@ -33,7 +33,7 @@
         </label>
        
         <p>
-            <button onclick="showName()">click me!</button>
+            <button onclick="calc()">calculate!</button>
         </p>
 
         <p id="result"></p>
@@ -42,20 +42,24 @@
 
     <script>
 
-        function showName() {
-            var input = document.getElementById('name');
-            var name = input.value;
+        function calc() {
+            var input = document.getElementById('number');
+            var number = input.value;
 
-            var p = document.getElementById('result');
-            p.innerText = "Your name is " + name;
-            p.style.color = 'steelblue'
+
+            var radio = document.querySelector ('input[name=power]:checked');
+            var power = radio.value;
+            var result = number ** power;
+
+            if(isNaN(number)) {
+                alert('please input a number!');
+            }
+            else {
+                p.innerHTML = number + 'to the ' + power + 'is ' + result;
+            }
         }
 
-        function count() {
-            for (var i = 0; i < 10; i++) {
-            console.log(i + 1);
-            }   
-        }
+
 
 
     </script>
